@@ -1,0 +1,14 @@
+@import "tailwindcss";
+*{
+    box-sizing: border-box;
+}
+
+.buttons{
+    padding: 4px 9px;
+    background-color: black ;
+    color: white;
+    border:2px solid black;
+    border-radius:9px;
+
+
+}

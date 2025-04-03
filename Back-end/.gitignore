@@ -1,0 +1,21 @@
+
+# Logs and temp files #
+#######################
+*.log
+*.tmp
+*.swp
+*.swo
+*.pid
+*.seed
+*.sqlite
+/node_modules
+/dist
+/build
+/coverage
+.env
+.env.*
+*.env.*
+.env.local
+.env.development
+.env.production
+.env.test
