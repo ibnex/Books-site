@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useBooks } from '../Components/Context';
 
 
 function Cartt() {
@@ -6,6 +7,8 @@ function Cartt() {
     const [category ,setCategory]=useState("Study")
     const [price ,setPrice]=useState(1500)
     const [dileveryCharge ,setDileveryCharge]=useState(25)
+    const { books } = useBooks();
+console.log(books);
     // const [Total, setTotal]=useState("")
     
     const [plus ,setPlus]=useState(1)
@@ -37,26 +40,36 @@ function Cartt() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 min-[550px]:gap-6 border-t border-gray-200 py-6">
+ {books.map((book , index)=>(
+            <div key={index} className="grid grid-cols-1 lg:grid-cols-2 min-[550px]:gap-6 border-t border-gray-200 py-6">
+     
+                
+   
+      
                 <div
-                    className="flex items-center flex-col min-[550px]:flex-row gap-3 min-[550px]:gap-6 w-full max-xl:justify-center max-xl:max-w-xl max-xl:mx-auto">
-                    <div className="img-box"><img src="https://plus.unsplash.com/premium_photo-1677187301535-b46cec7b2cc8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWF0aHMlMjBib29rc3xlbnwwfHwwfHx8MA%3D%3D" alt="perfume bottle image" className="xl:w-[140px] rounded-xl object-cover"/></div>
+                    className="flex   items-center flex-col min-[550px]:flex-row gap-3 min-[550px]:gap-6 w-full max-xl:justify-center max-xl:max-w-xl max-xl:mx-auto">
+                    <div className="img-box"><img src={book.image} alt={book.ProductName} className="xl:w-[140px] rounded-xl object-cover"/></div>
                     <div className="pro-data w-full max-w-sm ">
-                        <h5 className="font-semibold text-xl leading-8 text-black max-[550px]:text-center">{ProductName}
+                        <h5 className="font-semibold text-xl leading-8 text-black max-[550px]:text-center">{book.ProductName}
                         </h5>
                         <p
                             className="font-normal text-lg leading-8 text-gray-500 my-2 min-[550px]:my-3 max-[550px]:text-center">
-                            {category}</p>
-                        <h6 className="font-medium text-lg leading-8 text-indigo-600  max-[550px]:text-center">{price}</h6>
+                            {book.category}</p>
+                        <h6 className="font-medium text-lg leading-8 text-indigo-600  max-[550px]:text-center">{book.Price}</h6>
                     </div>
                 </div>
+                
+               
+               
                 {/* .................... */}
+               
+
                 <div
-                    className="flex items-center flex-col min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
+                    className="flex items-center bg-red-5  py-3 min-[550px]:flex-row w-full max-xl:max-w-xl max-xl:mx-auto gap-2">
                     <h6 className="font-manrope font-bold text-2xl leading-9 text-black w-full max-w-[176px] text-center">
                         {dileveryCharge} <span className="text-sm text-gray-300 ml-3 lg:hidden whitespace-nowrap">Delivery
                             Charge</span></h6>
-                    <div className="flex items-center w-full mx-auto  justify-center">
+                    <div className="flex items-center w-full mx-auto   justify-center">
                         <button onClick={onminus}
                             className="group rounded-l-full px-6 py-[18px] border border-gray-200 flex items-center justify-center shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:border-gray-300 hover:bg-gray-50">
                             <svg className="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
@@ -89,10 +102,11 @@ function Cartt() {
                     </div>
                     <h6
                         className="text-indigo-600 font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">
-                        {price * plus}</h6>
-                </div>
+                        {book.price * plus} </h6>
+                </div> </div>
+ ))}
               
-            </div>
+           
             
             <div className="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl max-lg:mx-auto">
                 <div className="flex items-center justify-between w-full mb-6">

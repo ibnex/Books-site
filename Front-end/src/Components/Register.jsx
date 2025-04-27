@@ -33,7 +33,7 @@ function Register() {
   return (
     <>
       <div className=" h-[90vh] w-[99vw] flex justify-center items-center">
-        <div className="bg-zinc-900 h-[80vh] w-[40vw] rounded-lg">
+        <div className="bg-zinc-900 h-[83vh] w-[40vw] rounded-lg  ">
           <div className="flex p-3 justify-between">
             <div className="h-[75vh] w-[38vw] rounded-lg  px-7 py-2">
               <div className="text-white text-5xl text-start mt-1 font-mono mb-2">
@@ -117,10 +117,10 @@ function Register() {
                   <hr />
                 </div>
               </div>
-              <div className="flex justify-between gap-3 py-1">
+              <div className="flex justify-between gap-3 py-1 ">
                 <div className="border-2  border-white  w-[50%] rounded-lg">
                   <button className="flex items-center px-5 py-3 text-white gap-2">
-                    {" "}
+                    
                     Google
                   </button>
                 </div>
@@ -134,10 +134,7 @@ function Register() {
           </div>
         </div>
       </div>
-      <p>{fname}</p>
-      <p>{lname}</p>
-      <p>{email}</p>
-      <p>{password}</p>
+     
     </>
   );
 }

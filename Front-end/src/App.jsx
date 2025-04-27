@@ -1,24 +1,30 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  useNavigate,
+
 } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
 import Login from "./Components/Login";
 import Home from "./Pages/Home";
-import ItemDetails from "./Components/ItemDetails";
+import ItemDetails from "./Components/productsfetch";
 import UserProfile from "./Pages/UserProfile";
 import { useState } from "react";
 import Cartt from "./Pages/Cartt";
-import AdminAdd from "./Components/AdminAdd";
+import AdminAdd from "./Components/AddProdcuts";
+import { BookProvider } from "./Components/Context";
+
 
 // import AdminAdd from "./Components/AdminAdd"
+
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const ChangeLogin = () => {
     setIsLogin(!isLogin);
+    
   };
+
 
   const myrouter = createBrowserRouter([
     {
@@ -35,7 +41,7 @@ function App() {
       element: (
         <>
           <Navbar isLogin={isLogin} ChangeLogin={ChangeLogin} />
-          <ItemDetails />
+          <ItemDetails/>
         </>
       ),
       // element:<><Navbar isLogin={isLogin} ChangeLogin={ChangeLogin}/><ItemDetails/></>
@@ -88,7 +94,11 @@ function App() {
   ]);
   return (
     <>
+    <BookProvider>
+
       <RouterProvider router={myrouter} />
+    </BookProvider>
+
     </>
   );
 }

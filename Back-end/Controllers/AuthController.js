@@ -69,7 +69,7 @@ const login = async (req, res) => {
 }
 
 
-const Products = async (req, res) => {
+const Productss = async (req, res) => {
     try {
         const { ProductName, Price, category, image } = req.body;
         // const Products = await ProductsModel.find();
@@ -99,5 +99,5 @@ const Products = async (req, res) => {
 module.exports = {
     register,
     login,
-    Products
+    Productss
 }

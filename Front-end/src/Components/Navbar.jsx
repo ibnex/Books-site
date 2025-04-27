@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
+
+
 function Navbar({ isLogin, ChangeLogin }) {
   const [show, setShow] = useState(false);
 
@@ -57,12 +59,12 @@ function Navbar({ isLogin, ChangeLogin }) {
           {show && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="py-1">
-                <Link
+                {/* <Link
                   to="/account-settings"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Account Settings
-                </Link>
+                </Link> */}
                 {isLogin ? (
                   <>
                     <Link
@@ -86,12 +88,23 @@ function Navbar({ isLogin, ChangeLogin }) {
                     >
                       Profile
                     </Link>
-                    <button
-                      onClick={ChangeLogin}
+                    {/* <button
+                        onClick={ChangeLogin}
+                        
+                      
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Logout
-                    </button>
+                    </button> */}
+                      <Link
+                        onClick={ChangeLogin}
+                      
+                      to="/register"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      logout
+                    </Link>
+                  
                   </>
                 )}
               </div>
